@@ -1,0 +1,29 @@
+# Environment variables
+.env
+
+# SQLite database
+db.sqlite3
+*/db.sqlite3
+
+# Model files
+*.h5
+*.hdf5
+
+# Python compiled files
+__pycache__/
+*.pyc
+
+# Django specific
+*.log
+*.pot
+*.pyc
+*.pyo
+*.db
+
+# Other files and folders to ignore
+*.swp
+*.swo
+*.DS_Store
+.idea/
+.vscode/
+*.bak
