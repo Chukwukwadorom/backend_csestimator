@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,10 +24,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=lvix)e(g36zf)&cr8e^^0u@tw20gon0n)nf9b$yu%qxkatu$#'
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "fallback-secret")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False") == "True"
+
+
+
+
 
 ALLOWED_HOSTS = ["*"]
 
@@ -125,9 +133,7 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-import os
-from dotenv import load_dotenv
-load_dotenv()
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
